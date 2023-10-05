@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>ScamLash</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/img/logo.jpg" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+        <style>.button {
+            display: flex;
+          }
+          
+          /* .box {
+            width: 35px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 15px;
+            font-weight: 700;
+            color: #fff;
+            transition: all .8s;
+            cursor: pointer;
+            position: relative;
+            background: rgb(58, 165, 253);
+            overflow: hidden;
+          }
+          
+          .box:before {
+            content: "W";
+            position: absolute;
+            top: 0;
+            background: #0f0f0f;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(100%);
+            transition: transform .4s;
+          }
+          
+          .box:nth-child(2)::before {
+            transform: translateY(-100%);
+            content: 'O';
+          }
+          
+          .box:nth-child(3)::before {
+            content: 'R';
+          }
+          
+          .box:nth-child(4)::before {
+            transform: translateY(-100%);
+            content: 'L';
+          }
+          
+          .box:nth-child(5)::before {
+            content: 'D';
+          }
+          
+          .button:hover .box:before {
+            transform: translateY(0);
+          } */
+          
+          .button {
+  width: 35%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  background-color: rgb(18, 182, 100);
+  border-radius: 30px;
+  color: rgb(19, 19, 19);
+  font-weight: 600;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  transition-duration: .2s;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.116);
+  padding-left: 8px;
+  transition-duration: .5s;
+}
+
+.svgIcon {
+  height: 25px;
+  transition-duration: 1.100s;
+}
+
+.bell path {
+  fill: rgb(19, 19, 19);
+}
+
+.button:hover {
+  background-color: rgb(247, 248, 245);
+  transition-duration: .5s;
+}
+
+.button:active {
+  transform: scale(0.97);
+  transition-duration: .2s;
+}
+
+.button:hover .svgIcon {
+  transform: rotate(250deg);
+  transition-duration: 1.5s;
+}
+
+#main video {
+    background: #222;
+    position: fixed;
+    min-width: 100px;
+    min-height: 100px;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transition: 1s opacity;
+    opacity: 0.5; 
+}
+#main video {
+    background: #222;
+    position: fixed;
+    width:100%;
+    max-height: 250px;
+    transition: 1s opacity;
+    opacity: 0.5;
+}
+
+          </style>
+<body>
+
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';"> × </span>
+        please choose your language. <div id="google_translate_element" class="nav-item nav-link"></div>
+      </div>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show text-success position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow" role="status"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5">
+        <a href="index.html" class="navbar-brand d-flex align-items-center">
+            <h2 class="m-0 text-success"><img class="img-fluid me-2" src="/img/logo.jpg" alt="" style="width: 45px;border-radius: 10px;">ScamLash</h2>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto py-4 py-lg-0" >
+                <a href="#index.html" class="nav-item nav-link active">Home</a>
+                <a href="#about.html" class="nav-item nav-link">About</a>
+                <a href="#service.html" class="nav-item nav-link">Service</a>
+                <a href="#roadmap.html" class="nav-item nav-link">Roadmap</a> 
+                <a href="#contact.html" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <div class="h-100 d-lg-inline-flex align-items-center d-none">
+                <a class="btn btn-square rounded-circle bg-light text-success me-2" href=""><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-success me-2" href=""><i class="fab fa-twitter"></i></a>
+                <a class="btn btn-square rounded-circle bg-light text-success me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid hero-header bg-dark py-5 mb-5" id="index.html">
+        <div class="container py-5">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 mb-3 animated slideInDown text-success">⚔ScamLash ⚔ <br>Your Playtime is Officially Over</h1>
+                    <p class="animated slideInDown">
+
+                        ✍🏻 <span style="color: red;">Contract Address</span> ✍🏻  <a href="https://bscscan.com/address/0x6092233d11eac18c98edf7d661181d8d8aa7b99a" style="color: #fff;">0xEd609e7834472aa68B</a></p>
+                    <button class="button">
+                        <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+                       Explore More 
+                     </button>
+                </div>
+                <div class="col-lg-6 animated fadeIn">
+                    <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; border-radius: 20px;" src="/img/OIG.jpg" alt="" style="border-radius: 20px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 animated fadeIn">
+        <img class="img-fluid animated pulse infinite" style="animation-duration: 3s; border-radius: 20px;" src="/img/bg-top.png" alt="" style="border-radius: 20px; color:black;">
+    </div>
+    <!-- Header End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5 " id="about.html">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <img class="img-fluid" src="/img/bg- forAssets.png" alt="">
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="h-100">
+                        <h1 class="display-6">About Us</h1>
+                        <p class="text-success fs-5 mb-4">The Most Trusted Cryptocurrency Platform</p>
+                        <p>At Scam Lash, our mission is crystal clear: to save people from crypto scams. We’re a dedicated community of crypto watchdogs,Our aim is to protect investors, traders, and enthusiasts from falling prey to scams, rug pulls, and Ponzi schemes.
+                            Join a thriving community of like-minded individuals who share your passion for crypto and a commitment to safeguarding its future</p>
+
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                            <span>Trusted</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-2">
+                            <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                            <span>24/7 Active</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                            <span>Good management</span>
+                        </div>
+                        <button class="button">
+                            <svg class="svgIcon" viewBox="0 0 512 512" height="1em" xmlns="http://www.w3.org/2000/svg"><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm50.7-186.9L162.4 380.6c-19.4 7.5-38.5-11.6-31-31l55.5-144.3c3.3-8.5 9.9-15.1 18.4-18.4l144.3-55.5c19.4-7.5 38.5 11.6 31 31L325.1 306.7c-3.2 8.5-9.9 15.1-18.4 18.4zM288 256a32 32 0 1 0 -64 0 32 32 0 1 0 64 0z"></path></svg>
+                        Read More 
+                         </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+    
+      
+    <!-- Facts Start -->
+        <div class="container-xxl py-5 bg-dark">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6" style="color: #fff;">Why Us!</h1>
+                <p class="text-success fs-5 mb-5">The Best In The crypto Industry</p>
+            </div>
+            <p class="data-wow-delay="0.1s; style="color: #fff; font-family: Font Awesome 5 Free";>In the wild west of cryptocurrencies, trust is paramount. Scam Lash has earned its reputation as the go-to channel for crypto enthusiasts seeking safety and knowledge. When you follow us, you join a united front against crypto scams, empowering yourself and others to make informed decisions in the world of digital assets.
+                Don’t let the scammers run the show any longer. Join Scam Lash today, and together, we’ll secure a safer future for the world of crypto.</p>
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                    <span>Trusted</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                    <span>24/7 Active</span>
+                </div>
+                <div class="d-flex align-items-center mb-4">
+                    <i class="fa fa-check bg-light text-success btn-sm-square rounded-circle me-3 fw-bold"></i>
+                    <span>Good management</span>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <br>
+   <br>
+
+   <div>
+    <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script><div id="coinmarketcap-widget-marquee" coins="1,1027,825" currency="USD" theme="light" transparent="false" show-symbol-logo="true"></div>
+   </div>
+
+    <!-- Service Start -->
+    <div class="container-xxl bg-dark py-5 my-5" id="service.html">
+        <div class="container py-5" style="border-radius: 20px;">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6" style="color: #fff;">Steps to Buy </h1>
+                <p class="text-success fs-5 mb-5">Buy, Sell And Exchange Cryptocurrency</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item bg-white p-5">
+                        <img style="border-radius: 20px;" class="img-fluid mb-4" src="/img/green coin.jpeg" alt="">
+                        <h5 class="mb-3">Create a Wallet</h5>
+                        <p>Install MetaMask or TrustWallet and follow their simple setup instructions.</p>
+                        <a href="" style="color: rgb(20, 146, 20);">Read More <i class="fa fa-arrow-right ms-2 text-success"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item bg-white p-5">
+                        <img style="border-radius: 20px;" class="img-fluid mb-4" src="/img/green coin.jpeg" alt="">
+                        <h5 class="mb-3">Get some BNB</h5>
+                        <p>Add BNB to your new wallet transferring from an exchange (ex. CoinBase, Binance) or purchasing directly.</p>
+                        <a href="" style="color: rgb(20, 146, 20);">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item bg-white p-5">
+                        <img style="border-radius: 20px;" class="img-fluid mb-4" src="/img/green coin.jpeg" alt="">
+                        <h5 class="mb-3">Go to PancakeSwap</h5>
+                        <p>Connect MetaMask wallet and swap $BNB or any other token for $PUMPIT on PancakeSwap</p>
+                        <a href="" style="color: rgb(20, 146, 20);">Read More <i class="fa fa-arrow-right ms-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- Roadmap Start -->
+    <div class="container-xxl py-5" id="roadmap.html">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6">Roadmap</h1>
+                <p class="text-success fs-5 mb-5">We Translate Your Dream Into Reality</p>
+            </div>
+            <div class="owl-carousel roadmap-carousel wow fadeInUp" data-wow-delay="0.1s" style="color: #0f0f0f;">
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>Phase 1</h5>
+                    <li>Launch website</li>
+                    <li>Build OG community</li>
+                    <li>Launch Presale</li>
+                    <li>Big Marketing Campaigns With The Big Crypto Influencers</li>
+                    <li>CoinGecko and CoinMarketCap Listing</li>
+                    <li>Reach 5000 Telegram members</li>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>Phase 2</h5>
+                    <li>Big Buyback System</li>
+                    <li>Get listed on exchange</li>
+                    <li>Start Ambassadior Program</li>
+                    <li>Reach 8000 Telegram members</li>
+                
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>Go to PancakeSwap</h5>
+                    <span>Connect MetaMask wallet and swap $BNB or any other token for $ScamLash on PancakeSwap</span>
+
+
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>July 2024</h5>
+                    <span>List on cmc & cg</span>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>September 2045</h5>
+                    <span>Makeing  All th</span>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-point"><span></span></div>
+                    <h5>November 2045</h5>
+                    <span>Top Listing </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Roadmap End -->
+
+
+    <!-- Token Sale Start  -->
+ <div class="container-xxl bg-dark py-5 my-5">
+        <div class="container py-5">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6">Token Sale</h1>
+                <p class="text-success fs-5 mb-5">Token Sale</p>
+            </div>
+                <div class="col-12 text-center py-4">
+                    <a class="btn btn-success py-3 px-4" href="https://pancakeswap.finance/swap?outputCurrency=0xEd609e7834472aa68Ba7CDBc8ea1bBEBdCC0D770&utm_source=Trust_iOS_Browser&inputCurrency=BNB" style="border-radius: 10px; width:50%;">Buy Token on PancakeSwap</a>
+                </div>
+                <div class="col-12 text-center">
+                    <img class="img-fluid m-1" src="img/payment-1.png" alt="" style="width: 50px;">
+                    <img class="img-fluid m-1" src="img/payment-2.png" alt="" style="width: 50px;">
+                    <img class="img-fluid m-1" src="img/payment-3.png" alt="" style="width: 50px;">
+                    <img class="img-fluid m-1" src="img/payment-4.png" alt="" style="width: 50px;">
+                </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+    <!-- Token Sale Start -->
+
+
+    <!-- FAQs Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
+                <h1 class="display-6">FAQs</h1>
+                <p class="text-success fs-5 mb-5">Frequently Asked Questions</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.1s">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne ">
+                                    1. What is ScamLash main Objective?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    ScamLash aims to educate and guide members through the intricate world of cryptocurrency. We foster a community where members can share knowledge, ask questions, and learn together..
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                   2. Is cryptocurrency safe?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    Like any financial endeavor, there are risks involved in cryptocurrency. However, with proper education and precautions, you can make informed decisions. We emphasise the importance of self-education and due diligence in our community.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.3s">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    ?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                    Will my website be mobile-friendly?
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.5s">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                    Will you maintain my site for me?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                    I’m on a strict budget. Do you have any low cost options?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.7s">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                    Will you maintain my site for me?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                    I’m on a strict budget. Do you have any low cost options?
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    How long will it take to get a new website?
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FAQs Start -->
+
+
+    <!-- Footer Start -->
+    
+        <div class="container-fluid bg-dark  footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s" >
+            <div class="container py-5" id="contact.html">
+                <div class="row g-5">
+                    <div class="col-md-6">
+                        <h1 class="text-success mb-4"><img class="img-fluid me-2" src="img/green coin.jpeg" alt="" style="width: 45px; border-radius: 10px;">ScamLash
+                        </h1>
+                        <span>green life</span>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 class="mb-4" style="color: #fff;">Newsletter</h4>
+                        <p>Let's keep you updated  </p>
+                       
+                        <form>
+                            <input autofocus id="name" placeholder="Name" type="text">  
+                                <input type="submit" >
+                          </form>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="mb-4">Get In Touch</h4>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>11 ta Street Lagos.</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>+012 3</p>
+                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="mb-4">Our Services</h5>
+                        <a class="btn btn-link" href="">Currency Wallet</a>
+                        <a class="btn btn-link" href="">Currency Transaction</a>
+                        <a class="btn btn-link" href="">Bitcoin Investment</a>
+                        <a class="btn btn-link" href="">Token Sale</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="mb-4">Quick Links</h5>
+                        <a class="btn btn-link" href="">About Us</a>
+                        <a class="btn btn-link" href="">Contact Us</a>
+                        <a class="btn btn-link" href="">Our Services</a>
+                        <a class="btn btn-link" href="">Terms & Condition</a>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h5 class="mb-4">Follow Us</h5>
+                        <div class="d-flex">
+                            <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-twitter text-success"></i></a>
+                            <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-facebook-f text-success"></i></a>
+                            <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-youtube text-success"></i></a>
+                            <a class="btn btn-square rounded-circle me-1" href=""><i class="fab fa-linkedin-in text-success"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid copyright">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-success">
+                            &copy; <a href="/index.html">ScamLash.com
+                            </a>, All Right Reserved.
+                        </div>
+                        <div class="col-md-6 text-center text-md-end text-success">
+                            Designed By <a href="https://www.linkedin.com/in/moyosoreoluwa-gbolasere-4ab589242/">Moyo Dev Ade</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-success btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+        }
+        </script>
+        
+        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+   <script>
+       document.querySelector("form"). onsubmit = function() {
+           const name = document.querySelector("#name").value;
+           alert(` Hello, ${name} Thanks for Subscribe. `);
+        } 
+    
+   </script>
+       
+    <script src="js/main.js"></script>
+</body>
+
+</html>
